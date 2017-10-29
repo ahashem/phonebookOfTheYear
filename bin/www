@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+/* eslint-disable */
+const http = require('http');
+const app = require('../server/server.js');
+const logger = require('../lib/logger');
+
+const PORT = parseInt(process.env.PORT, 10) || 8000;
+app.set('port', PORT);
+
+const server = http.createServer(app);
+
+server.listen(PORT, () => {
+  logger.info(`The Backend server is running at localhost:${PORT}`);
+});
