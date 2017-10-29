@@ -50,3 +50,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+.idea/inspectionProfiles/
+.idea/markdown-navigator.xml
+.idea/vcs.xml
+.idea/
