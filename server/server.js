@@ -7,6 +7,8 @@ const logger = require('../lib/logger');
 const serveStatic = require('serve-static');
 
 const project = require('../config/project.config');
+// Routes
+const contacts = require('./routes/contacts.routes');
 
 // Import routes and config
 const config = require('../config/server.config');
@@ -79,5 +81,7 @@ if (isDev) {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
   });
 }
+
+app.use('/api', contacts);
 
 module.exports = app;
