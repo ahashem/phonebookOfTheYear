@@ -1,11 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn,} from 'material-ui/Table';
+import { connect } from 'react-redux';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 import ActionNew from 'material-ui/svg-icons/communication/contacts';
 import ActionEdit from 'material-ui/svg-icons/editor/mode-edit';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
-import {FlatButton, RaisedButton} from 'material-ui';
+import { FlatButton, RaisedButton } from 'material-ui';
 import RemoveContactModal from '../../components/Modals/RemoveContactModal';
 import ManageContactModal from '../../components/Modals/ManageContactModal';
 // Actions
@@ -148,7 +155,7 @@ class Phonebook extends Component {
               <TableHeaderColumn>Name</TableHeaderColumn>
               <TableHeaderColumn>Phone</TableHeaderColumn>
               <TableHeaderColumn>Email</TableHeaderColumn>
-              <TableHeaderColumn></TableHeaderColumn>
+              <TableHeaderColumn />
             </TableRow>
           </TableHeader>
           <TableBody deselectOnClickaway showRowHover stripedRows>

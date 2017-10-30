@@ -1,7 +1,7 @@
 /**
  * Root Reducer
  */
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 // Import Reducers
 import app from './modules/App/AppReducer';
 import Phonebook from './modules/Phonebook/PhonebookReducer';

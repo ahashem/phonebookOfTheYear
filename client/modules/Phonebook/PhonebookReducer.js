@@ -83,8 +83,7 @@ export const getContactsList = state => state.Phonebook.contactsList;
 // get selected row index
 export const getSelectedRow = state => state.Phonebook.selectedRow;
 // Check if removing a contact modal is open
-export const getIsRemoveModalOpen = state =>
-  state.Phonebook.isRemoveModalOpen;
+export const getIsRemoveModalOpen = state => state.Phonebook.isRemoveModalOpen;
 // check if the modal for add/edit contact is open
 export const getIsContactEditModalOpen = state =>
   state.Phonebook.isContactEditModalOpen;

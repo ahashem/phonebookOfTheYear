@@ -57,22 +57,17 @@ if (isDev) {
 
   app.use(express.static(path.resolve(project.basePath, 'public')));
 
-  app.get(
-    [
-      '/',
-    ],
-    (req, res, next) => {
-      const filename = path.join(compiler.outputPath, 'index.html');
-      compiler.outputFileSystem.readFile(filename, (err, result) => {
-        if (err) {
-          return next(err);
-        }
-        res.set('content-type', 'text/html');
-        res.send(result);
-        res.end();
-      });
-    }
-  );
+  app.get(['/'], (req, res, next) => {
+    const filename = path.join(compiler.outputPath, 'index.html');
+    compiler.outputFileSystem.readFile(filename, (err, result) => {
+      if (err) {
+        return next(err);
+      }
+      res.set('content-type', 'text/html');
+      res.send(result);
+      res.end();
+    });
+  });
 } else {
   logger.info(`Serving public files from : ${path.join(__dirname, '../dist')}`);
   app.use('/', serveStatic(path.join(__dirname, '../dist')));

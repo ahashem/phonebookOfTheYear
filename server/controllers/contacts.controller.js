@@ -1,11 +1,11 @@
 const logger = require('../../lib/logger');
-const Contacts = require('../mock-data/mockData')
+const Contacts = require('../mock-data/mockData');
 
 module.exports.getContacts = (req, res) => {
   if (!Contacts || Contacts.length === 0) {
-        return res.status(400).send('No contacts found');
-      }
-      return res.json({ contacts: Contacts });
+    return res.status(400).send('No contacts found');
+  }
+  return res.json({ contacts: Contacts });
 };
 
 module.exports.getContactById = (req, res) => {

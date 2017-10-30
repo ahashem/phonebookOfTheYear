@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {MuiThemeProvider} from 'material-ui/styles';
-import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { MuiThemeProvider } from 'material-ui/styles';
+import { withRouter } from 'react-router-dom';
 // Import Style
 // import styles from './App.css';
 // Import Components
@@ -15,8 +15,8 @@ import DevTools from './components/DevTools';
 import AppBar from '../../components/muiTheme/layout/AppBar';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // Import Actions
-import {setSidebarVisibility} from '../../components/muiTheme/actions';
-import {isLoading} from './AppReducer';
+import { setSidebarVisibility } from '../../components/muiTheme/actions';
+import { isLoading } from './AppReducer';
 
 // TODO: move
 const styles = {
