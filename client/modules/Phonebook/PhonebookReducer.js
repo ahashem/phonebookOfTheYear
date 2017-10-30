@@ -1,12 +1,12 @@
 // Import Actions
 import {
-  CLOSE_LABEL_EDIT_MODAL,
-  CLOSE_REMOVE_LABEL_MODAL,
+  CLOSE_CONTACT_EDIT_MODAL,
+  CLOSE_REMOVE_CONTACT_MODAL,
   CONTACT_MODAL_ADD_MODE,
-  OPEN_LABEL_EDIT_MODAL,
-  OPEN_REMOVE_LABEL_MODAL,
-  SET_CURRENT_LABEL,
-  SET_LABELS_LIST,
+  OPEN_CONTACT_EDIT_MODAL,
+  OPEN_REMOVE_CONTACT_MODAL,
+  SET_CURRENT_CONTACT,
+  SET_CONTACTS_LIST,
   SET_SELECTED_ROW,
 } from './PhonebookActions';
 import ContactManager from './Phonebook';
@@ -22,7 +22,7 @@ const initialState = {
 };
 
 const ACTION_HANDLERS = {
-  [SET_LABELS_LIST]: (state, action) => {
+  [SET_CONTACTS_LIST]: (state, action) => {
     return {
       ...state,
       contactsList: action.contacts,
@@ -34,19 +34,19 @@ const ACTION_HANDLERS = {
       selectedRow: action.selectedRow,
     };
   },
-  [OPEN_REMOVE_LABEL_MODAL]: (state, action) => {
+  [OPEN_REMOVE_CONTACT_MODAL]: (state, action) => {
     return {
       ...state,
       isRemoveModalOpen: true,
     };
   },
-  [CLOSE_REMOVE_LABEL_MODAL]: (state, action) => {
+  [CLOSE_REMOVE_CONTACT_MODAL]: (state, action) => {
     return {
       ...state,
       isRemoveModalOpen: false,
     };
   },
-  [OPEN_LABEL_EDIT_MODAL]: (state, action) => {
+  [OPEN_CONTACT_EDIT_MODAL]: (state, action) => {
     return {
       ...state,
       isContactEditModalOpen: true,
@@ -56,14 +56,14 @@ const ACTION_HANDLERS = {
         : {},
     };
   },
-  [CLOSE_LABEL_EDIT_MODAL]: (state, action) => {
+  [CLOSE_CONTACT_EDIT_MODAL]: (state, action) => {
     return {
       ...state,
       isContactEditModalOpen: false,
       currentContact: {},
     };
   },
-  [SET_CURRENT_LABEL]: (state, action) => {
+  [SET_CURRENT_CONTACT]: (state, action) => {
     return {
       ...state,
       currentContact: Object.assign({}, state.currentContact, action.label),

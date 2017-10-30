@@ -2,15 +2,15 @@ import callApi from '../../util/apiCaller';
 import { startLoading, loadComplete } from '../App/AppActions';
 
 // Export Constants
-export const SET_LABELS_LIST = 'SET_LABELS_LIST';
+export const SET_CONTACTS_LIST = 'SET_CONTACTS_LIST';
 export const SET_SELECTED_ROW = 'SET_SELECTED_ROW';
 
-export const OPEN_REMOVE_LABEL_MODAL = 'OPEN_REMOVE_LABEL_MODAL';
-export const CLOSE_REMOVE_LABEL_MODAL = 'CLOSE_REMOVE_LABEL_MODAL';
+export const OPEN_REMOVE_CONTACT_MODAL = 'OPEN_REMOVE_CONTACT_MODAL';
+export const CLOSE_REMOVE_CONTACT_MODAL = 'CLOSE_REMOVE_CONTACT_MODAL';
 
-export const OPEN_LABEL_EDIT_MODAL = 'OPEN_LABEL_EDIT_MODAL';
-export const CLOSE_LABEL_EDIT_MODAL = 'CLOSE_LABEL_EDIT_MODAL';
-export const SET_CURRENT_LABEL = 'SET_CURRENT_LABEL';
+export const OPEN_CONTACT_EDIT_MODAL = 'OPEN_CONTACT_EDIT_MODAL';
+export const CLOSE_CONTACT_EDIT_MODAL = 'CLOSE_CONTACT_EDIT_MODAL';
+export const SET_CURRENT_CONTACT = 'SET_CURRENT_CONTACT';
 export const CONTACT_MODAL_ADD_MODE = 'CONTACT_MODAL_ADD_MODE';
 export const CONTACT_MODAL_EDIT_MODE = 'CONTACT_MODAL_EDIT_MODE';
 
@@ -67,7 +67,7 @@ export const deleteContactById = labelId => {
 
 export const setContactsList = contacts => {
   return {
-    type: SET_LABELS_LIST,
+    type: SET_CONTACTS_LIST,
     contacts,
   };
 };
@@ -81,26 +81,26 @@ export const selectRow = selectedRow => {
 
 export function openRemoveContactModal(label) {
   return {
-    type: OPEN_REMOVE_LABEL_MODAL,
+    type: OPEN_REMOVE_CONTACT_MODAL,
   };
 }
 
 export function closeRemoveContactModal() {
   return {
-    type: CLOSE_REMOVE_LABEL_MODAL,
+    type: CLOSE_REMOVE_CONTACT_MODAL,
   };
 }
 
 export function setCurrentContact(label) {
   return {
-    type: SET_CURRENT_LABEL,
+    type: SET_CURRENT_CONTACT,
     label,
   };
 }
 
 export function openContactEditModal(modalMode, label) {
   return {
-    type: OPEN_LABEL_EDIT_MODAL,
+    type: OPEN_CONTACT_EDIT_MODAL,
     label,
     modalMode,
   };
@@ -108,6 +108,6 @@ export function openContactEditModal(modalMode, label) {
 
 export function closeContactEditModal() {
   return {
-    type: CLOSE_LABEL_EDIT_MODAL,
+    type: CLOSE_CONTACT_EDIT_MODAL,
   };
 }
