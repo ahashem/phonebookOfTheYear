@@ -91,7 +91,7 @@ export class App extends Component {
           <div>
             <Helmet
               title="Phonebook"
-              titleTemplate="%s - Phonebook"
+              titleTemplate="Think Cognitev | %s"
               meta={[
                 { charset: 'utf-8' },
                 {

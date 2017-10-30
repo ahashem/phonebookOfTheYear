@@ -1,5 +1,5 @@
 import callApi from '../../util/apiCaller';
-import {startLoading, loadComplete} from "../App/AppActions";
+import { startLoading, loadComplete } from '../App/AppActions';
 
 // Export Constants
 export const SET_LABELS_LIST = 'SET_LABELS_LIST';
