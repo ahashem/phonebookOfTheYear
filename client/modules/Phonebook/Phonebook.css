@@ -1,11 +1,11 @@
 /* Contact Manager styles */
 
-.label-manager .page-head {
+.contact-manager .page-head {
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
 }
 
-.label-manager .page-head > * {
+.contact-manager .page-head > * {
   display: flex !important;
 }

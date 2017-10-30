@@ -1,4 +1,5 @@
 import callApi from '../../util/apiCaller';
+import {startLoading, loadComplete} from "../App/AppActions";
 
 // Export Constants
 export const SET_LABELS_LIST = 'SET_LABELS_LIST';
@@ -28,9 +29,11 @@ export const fetchContactsList = () => {
 
 export const createContact = contact => {
   return dispatch => {
+    dispatch(startLoading());
     return callApi(`contacts/new`, 'post', { contact })
       .then(res => {
         dispatch(fetchContactsList());
+        dispatch(loadComplete());
       })
       .catch(error => {
         console.log(error);

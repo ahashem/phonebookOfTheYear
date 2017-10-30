@@ -62,16 +62,16 @@ class Phonebook extends Component {
     this.props.selectRow(selectedRow);
   }
 
-  handleCreate(label) {
+  handleCreate(contact) {
     this.props.openContactEditModal(CONTACT_MODAL_ADD_MODE);
   }
 
-  handleUpdate(label) {
-    this.props.openContactEditModal(CONTACT_MODAL_EDIT_MODE, label);
+  handleUpdate(contact) {
+    this.props.openContactEditModal(CONTACT_MODAL_EDIT_MODE, contact);
   }
 
-  handleDelete(label) {
-    this.props.setCurrentContact(label);
+  handleDelete(contact) {
+    this.props.setCurrentContact(contact);
     this.props.openRemoveContactModal();
   }
 
@@ -85,7 +85,7 @@ class Phonebook extends Component {
     if (contactModalMode === CONTACT_MODAL_ADD_MODE) {
       createContact(currentContact);
     } else if (contactModalMode === CONTACT_MODAL_EDIT_MODE) {
-      updateContactById(currentContact.id, currentContact.label);
+      updateContactById(currentContact.id, currentContact);
     }
     closeContactEditModal();
   }
@@ -103,27 +103,27 @@ class Phonebook extends Component {
     } = this.props;
     const tableRows = [];
     contactsList && contactsList.length > 0
-      ? contactsList.map((label, index) => {
+      ? contactsList.map((contact, index) => {
           tableRows.push(
             <TableRow key={index} selected={this.props.selectedRow === index}>
               <TableRowColumn>{index}</TableRowColumn>
-              <TableRowColumn>{label.name}</TableRowColumn>
-              <TableRowColumn>{label.phone}</TableRowColumn>
-              <TableRowColumn>{label.email}</TableRowColumn>
+              <TableRowColumn>{contact.name}</TableRowColumn>
+              <TableRowColumn>{contact.phone}</TableRowColumn>
+              <TableRowColumn>{contact.email}</TableRowColumn>
               <TableRowColumn>
                 <FlatButton
                   label="Edit"
                   labelPosition="after"
                   primary
                   icon={<ActionEdit />}
-                  onClick={event => this.handleUpdate(label)}
+                  onClick={event => this.handleUpdate(contact)}
                 />
                 <FlatButton
                   label="Delete"
                   labelPosition="after"
                   primary
                   icon={<ActionDelete />}
-                  onClick={event => this.handleDelete(label)}
+                  onClick={event => this.handleDelete(contact)}
                 />
               </TableRowColumn>
             </TableRow>
@@ -132,7 +132,7 @@ class Phonebook extends Component {
       : '';
 
     return (
-      <div className="label-manager">
+      <div className="contact-manager">
         <div className="page-head">
           <h1>Phonebook</h1>
           <RaisedButton
@@ -164,22 +164,22 @@ class Phonebook extends Component {
         </Table>
         {isRemoveModalOpen && (
           <RemoveContactModal
-            message={'Are you sure you want to delete this label?'}
+            message={'Are you sure you want to delete this contact?'}
             cancel={() => closeRemoveContactModal()}
             discard={event => {
-              deleteContactById(currentContact._id);
+              deleteContactById(currentContact.id);
               closeRemoveContactModal();
             }}
           />
         )}
         <ManageContactModal
-          message={'Contact: '}
+          message={'Add/Edit Contact'}
           cancel={() => closeContactEditModal()}
           open={isContactEditModalOpen}
           submit={() => this.submitContact(currentContact)}
-          updateTextInput={updatedText =>
-            setCurrentContact({ ...currentContact, label: updatedText })}
-          textInput={currentContact || ''}
+          updateContactInput={updatedText =>
+            setCurrentContact({ ...currentContact, contact: updatedText })}
+          contactInput={currentContact || ''}
         />
       </div>
     );
@@ -200,17 +200,18 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchContactsList: () => dispatch(fetchContactsList()),
-    createContact: contact => dispatch(createContact(label)),
-    updateContactById: (labelId, updatedContact) =>
-      dispatch(updateContactById(labelId, updatedContact)),
-    deleteContactById: labelId => dispatch(deleteContactById(labelId)),
+    createContact: contact => dispatch(createContact(contact)),
+    updateContactById: (contactId, updatedContact) =>
+      dispatch(updateContactById(contactId, updatedContact)),
+    deleteContactById: contactId => dispatch(deleteContactById(contactId)),
     selectRow: selectedRow => dispatch(selectRow(selectedRow)),
-    openRemoveContactModal: contact => dispatch(openRemoveContactModal(label)),
+    openRemoveContactModal: contact =>
+      dispatch(openRemoveContactModal(contact)),
     closeRemoveContactModal: () => dispatch(closeRemoveContactModal()),
-    openContactEditModal: (mode, label) =>
-      dispatch(openContactEditModal(mode, label)),
+    openContactEditModal: (mode, contact) =>
+      dispatch(openContactEditModal(mode, contact)),
     closeContactEditModal: () => dispatch(closeContactEditModal()),
-    setCurrentContact: contact => dispatch(setCurrentContact(label)),
+    setCurrentContact: contact => dispatch(setCurrentContact(contact)),
   };
 };
 

@@ -6,7 +6,6 @@
     "start:dev": "cross-env DEBUG=phonebook-of-the-year:* nodemon ./bin/www -w server -w config -w lib",
     "start": "cross-env DEBUG=phonebook-of-the-year:* node ./bin/www",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --config ./config/webpack.config.js -p",
-    "heroku-postbuild": "",
     "build:analyze": "cross-env SHOW_ANALYZER=true npm run build",
     "clean": "rimraf dist",
     "slate": "rimraf node_modules && npm install",
