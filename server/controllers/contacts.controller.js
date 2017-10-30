@@ -13,7 +13,7 @@ module.exports.getContactById = (req, res) => {
   if (!contactId) {
     res.status(400).send('Something wrong with the requested contact Id');
   }
-  let contact = Contacts.find(contact => contact.id == contactId)
+  let contact = Contacts.find(contact => contact.id === parseInt(contactId))
   if (!contact) {
     return res.status(400).send('Requested Contact not found');
   }
@@ -50,7 +50,7 @@ module.exports.updateContactById = (req, res) => {
   }
 
   logger.info('updated Contact object: ', updatedContact);
-  let contactToUpdate = Contacts.find(contact => contact.id == contactId)
+  let contactToUpdate = Contacts.find(contact => contact.id === parseInt(contactId))
   if (!contactToUpdate) {
     return res.status(400).send('Requested Contact not found');
   }
@@ -67,7 +67,7 @@ module.exports.removeContactById = (req, res) => {
   if (!contactId) {
     return res.status(400).send('Something wrong with the requested contact Id');
   }
-  let contactToRemove = Contacts.findIndex(contact => contact.id == contactId)
+  let contactToRemove = Contacts.findIndex(contact => contact.id === parseInt(contactId))
   console.log('contactToRemove: ', contactToRemove)
   if (contactToRemove === -1) {
     return res.status(400).send('Requested Contact not found');
