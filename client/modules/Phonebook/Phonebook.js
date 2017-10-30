@@ -177,9 +177,9 @@ class Phonebook extends Component {
           cancel={() => closeContactEditModal()}
           open={isContactEditModalOpen}
           submit={() => this.submitContact(currentContact)}
-          updateContactInput={updatedText =>
-            setCurrentContact({ ...currentContact, contact: updatedText })}
-          contactInput={currentContact || ''}
+          updateContactInput={(updatedKey, updatedValue) =>
+            setCurrentContact({ ...currentContact, [updatedKey]:updatedValue })}
+          contactInput={currentContact || {}}
         />
       </div>
     );

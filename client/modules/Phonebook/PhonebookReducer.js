@@ -51,8 +51,8 @@ const ACTION_HANDLERS = {
       ...state,
       isContactEditModalOpen: true,
       contactModalMode: action.modalMode || CONTACT_MODAL_ADD_MODE,
-      currentContact: action.label
-        ? Object.assign({}, state.currentContact, action.label)
+      currentContact: action.contact
+        ? Object.assign({}, state.currentContact, action.contact)
         : {},
     };
   },
@@ -66,7 +66,7 @@ const ACTION_HANDLERS = {
   [SET_CURRENT_CONTACT]: (state, action) => {
     return {
       ...state,
-      currentContact: Object.assign({}, state.currentContact, action.label),
+      currentContact: Object.assign({}, state.currentContact, action.contact),
     };
   },
 };

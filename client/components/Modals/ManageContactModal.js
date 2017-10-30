@@ -40,7 +40,7 @@ const ManageContactModal = (props, context) => {
             floatingLabelFixed
             hintText="Name"
             value={contactInput.name || ''}
-            onChange={(event, newValue) => updateContactInput(newValue)}
+            onChange={(event, newValue) => updateContactInput('name', newValue)}
           />
         </div>
         <div>
@@ -50,7 +50,7 @@ const ManageContactModal = (props, context) => {
             floatingLabelFixed
             hintText="Phone"
             value={contactInput.phone || ''}
-            onChange={(event, newValue) => updateContactInput(newValue)}
+            onChange={(event, newValue) => updateContactInput('phone', newValue)}
           />
         </div>
         <div>
@@ -60,7 +60,7 @@ const ManageContactModal = (props, context) => {
             floatingLabelFixed
             hintText="Email"
             value={contactInput.email || ''}
-            onChange={(event, newValue) => updateContactInput(newValue)}
+            onChange={(event, newValue) => updateContactInput('email', newValue)}
           />
         </div>
       </Dialog>

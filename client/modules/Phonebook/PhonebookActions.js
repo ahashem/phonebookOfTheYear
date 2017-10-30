@@ -41,9 +41,9 @@ export const createContact = contact => {
   };
 };
 
-export const updateContactById = (labelId, updatedContact) => {
+export const updateContactById = (contactId, updatedContact) => {
   return dispatch => {
-    return callApi(`contacts/${labelId}`, 'post', { label: updatedContact })
+    return callApi(`contacts/${contactId}`, 'post', { contact: updatedContact })
       .then(res => {
         dispatch(fetchContactsList());
       })
@@ -53,9 +53,9 @@ export const updateContactById = (labelId, updatedContact) => {
   };
 };
 
-export const deleteContactById = labelId => {
+export const deleteContactById = contactId => {
   return dispatch => {
-    return callApi(`contacts/${labelId}`, 'delete')
+    return callApi(`contacts/${contactId}`, 'delete')
       .then(res => {
         dispatch(fetchContactsList());
       })
@@ -79,7 +79,7 @@ export const selectRow = selectedRow => {
   };
 };
 
-export function openRemoveContactModal(label) {
+export function openRemoveContactModal(contact) {
   return {
     type: OPEN_REMOVE_CONTACT_MODAL,
   };
@@ -91,17 +91,17 @@ export function closeRemoveContactModal() {
   };
 }
 
-export function setCurrentContact(label) {
+export function setCurrentContact(contact) {
   return {
     type: SET_CURRENT_CONTACT,
-    label,
+    contact,
   };
 }
 
-export function openContactEditModal(modalMode, label) {
+export function openContactEditModal(modalMode, contact) {
   return {
     type: OPEN_CONTACT_EDIT_MODAL,
-    label,
+    contact,
     modalMode,
   };
 }
