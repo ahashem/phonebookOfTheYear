@@ -4,7 +4,7 @@
   "description": "Phonebook of the Year an Isomorphic JavaScript app using React and Redux. Cognitev Thinking!",
   "scripts": {
     "start:dev": "cross-env DEBUG=phonebook-of-the-year:* nodemon ./bin/www -w server -w config -w lib",
-    "start": "npm run build && npm run start",
+    "start": "npm run build && cross-env DEBUG=phonebook-of-the-year:* node ./bin/www",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --config ./config/webpack.config.js -p",
     "build:analyze": "cross-env SHOW_ANALYZER=true npm run build",
     "clean": "rimraf dist",
